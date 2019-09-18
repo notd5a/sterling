@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="697.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.profileController">
+   <children>
+      <Pane layoutY="232.0" prefHeight="402.0" prefWidth="697.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" prefHeight="108.0" prefWidth="679.0" spacing="50.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="108.0" prefWidth="138.0">
+                     <children>
+                        <Label fx:id="totalSaved" text="\$10,000" textFill="#2a73ff">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label text="Total Saved" textFill="#2a73ff">
+                           <font>
+                              <Font name="Segoe UI Light" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="108.0" prefWidth="154.0">
+                     <children>
+                        <Label fx:id="totalIncome" text="\$100,000" textFill="#26bfbc">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label text="Total Income" textFill="#2a73ff">
+                           <font>
+                              <Font name="Segoe UI Light" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="108.0" prefWidth="129.0">
+                     <children>
+                        <Label fx:id="spending" text="\$90,000" textFill="#fa5f7e">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label text="Spending" textFill="#2a73ff">
+                           <font>
+                              <Font name="Segoe UI Light" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="108.0" prefWidth="111.0">
+                     <children>
+                        <Label fx:id="savings" text="\$20,000" textFill="#de0000">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <Label text="Savings" textFill="#2a73ff">
+                           <font>
+                              <Font name="Segoe UI Light" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Pane layoutY="108.0" prefHeight="295.0" prefWidth="697.0">
+               <children>
+                  <BarChart fx:id="bar_chart" layoutX="2.0" layoutY="1.0" prefHeight="295.0" prefWidth="697.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" fx:id="x" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis fx:id="y" side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane prefHeight="235.0" prefWidth="697.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="368.0" layoutY="46.0" prefHeight="35.0" prefWidth="82.0" text="Name:" textFill="#2a73ff">
+               <font>
+                  <Font name="Segoe UI Semibold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="368.0" layoutY="102.0" prefHeight="35.0" prefWidth="120.0" text="Username:" textFill="#2a73ff">
+               <font>
+                  <Font name="Segoe UI Semibold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="368.0" layoutY="158.0" prefHeight="35.0" prefWidth="60.0" text="Age:" textFill="#2a73ff">
+               <font>
+                  <Font name="Segoe UI Semibold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="name" layoutX="452.0" layoutY="47.0" prefHeight="34.0" prefWidth="73.0" text="Admin">
+               <font>
+                  <Font name="Segoe UI Light Italic" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="username" layoutX="489.0" layoutY="103.0" prefHeight="34.0" prefWidth="47.0" text="root">
+               <font>
+                  <Font name="Segoe UI Light Italic" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="age" layoutX="420.0" layoutY="159.0" prefHeight="34.0" prefWidth="32.0" text="17">
+               <font>
+                  <Font name="Segoe UI Light Italic" size="23.0" />
+               </font>
+            </Label>
+            <Circle fill="#1f93ff00" layoutX="232.0" layoutY="120.0" radius="100.0" stroke="#2a73ff" strokeType="INSIDE" />
+            <Text fill="#2a73ff" layoutX="155.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avatar" textAlignment="CENTER" wrappingWidth="153.5">
+               <font>
+                  <Font name="Segoe UI Light" size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
