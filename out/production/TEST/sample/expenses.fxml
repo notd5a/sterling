@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.incomeController">
    <children>
-      <Text fill="#2a73ff" layoutX="1.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Saving Sources" textAlignment="CENTER" wrappingWidth="699.0" AnchorPane.bottomAnchor="344.953125" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.203125">
+      <Text fill="#2a73ff" layoutX="1.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Spending Sources" textAlignment="CENTER" wrappingWidth="699.0" AnchorPane.bottomAnchor="344.953125" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.203125">
          <font>
             <Font name="Segoe UI Light" size="48.0" />
          </font>
@@ -26,7 +26,7 @@
                         <Font name="System Bold" size="26.0" />
                      </font>
                   </Label>
-                  <Label text="401K" textFill="#2a73ff">
+                  <Label text="Home" textFill="#2a73ff">
                      <font>
                         <Font name="Segoe UI Light" size="15.0" />
                      </font>
@@ -40,7 +40,7 @@
                         <Font name="System Bold" size="26.0" />
                      </font>
                   </Label>
-                  <Label text="Education" textFill="#2a73ff">
+                  <Label text="Transportation" textFill="#2a73ff">
                      <font>
                         <Font name="Segoe UI Light" size="15.0" />
                      </font>
@@ -54,7 +54,7 @@
                         <Font name="System Bold" size="26.0" />
                      </font>
                   </Label>
-                  <Label text="Emergency Fund" textFill="#2a73ff">
+                  <Label text="Health" textFill="#2a73ff">
                      <font>
                         <Font name="Segoe UI Light" size="15.0" />
                      </font>
@@ -68,7 +68,7 @@
                         <Font name="System Bold" size="26.0" />
                      </font>
                   </Label>
-                  <Label text="Uncategorized" textFill="#2a73ff">
+                  <Label text="Entertainment" textFill="#2a73ff">
                      <font>
                         <Font name="Segoe UI Light" size="15.0" />
                      </font>
@@ -79,7 +79,7 @@
       </HBox>
       <Pane layoutX="2.0" layoutY="263.0" prefHeight="371.0" prefWidth="697.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Text fill="#2a73ff" layoutX="205.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="401K" wrappingWidth="97.0">
+            <Text fill="#2a73ff" layoutX="205.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" wrappingWidth="97.0">
                <font>
                   <Font name="Segoe UI Light Italic" size="35.0" />
                </font>
@@ -106,7 +106,7 @@
                   <Font name="Segoe UI Light Italic" size="22.0" />
                </font>
             </Button>
-            <Text fill="#26bfbc" layoutX="205.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Education" wrappingWidth="177.0">
+            <Text fill="#26bfbc" layoutX="205.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport" wrappingWidth="177.0">
                <font>
                   <Font name="Segoe UI Light Italic" size="35.0" />
                </font>
@@ -121,9 +121,9 @@
                   <Font name="Segoe UI Light Italic" size="22.0" />
                </font>
             </Button>
-            <Text fill="#fa5f7e" layoutX="205.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Fund" wrappingWidth="267.0">
+            <Text fill="#fa5f7e" layoutX="205.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" wrappingWidth="153.0">
                <font>
-                  <Font name="Segoe UI Light Italic" size="27.0" />
+                  <Font name="Segoe UI Light Italic" size="35.0" />
                </font>
             </Text>
             <Button layoutX="434.0" layoutY="227.0" mnemonicParsing="false" onAction="#creditAddBtn" prefHeight="48.0" prefWidth="73.0" style="-fx-background-color: #fa5f7e;" text="Add" textFill="WHITE">
@@ -136,7 +136,7 @@
                   <Font name="Segoe UI Light Italic" size="22.0" />
                </font>
             </Button>
-            <Text fill="#de0000" layoutX="205.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uncategorized" wrappingWidth="220.0">
+            <Text fill="#de0000" layoutX="205.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entertainment" wrappingWidth="220.0">
                <font>
                   <Font name="Segoe UI Light" size="35.0" />
                </font>
@@ -170,7 +170,7 @@
                   <Font name="System Bold" size="41.0" />
                </font>
             </Label>
-            <Label prefHeight="21.0" prefWidth="697.0" style="-fx-alignment: center;" text="Total Savings" textAlignment="CENTER" textFill="#2a73ff">
+            <Label prefHeight="21.0" prefWidth="697.0" style="-fx-alignment: center;" text="Total Spending" textAlignment="CENTER" textFill="#2a73ff">
                <font>
                   <Font name="Segoe UI Light" size="21.0" />
                </font>

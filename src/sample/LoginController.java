@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.scene.control.CheckBox;
 import org.ini4j.Ini;
 
 import javafx.fxml.*;
@@ -27,6 +29,8 @@ public class LoginController implements Initializable{
     private TextField passField;
     @FXML
     private Label status;
+    @FXML
+    private CheckBox rememberMe;
 
     private final String pathIni = "ini\\LoginData.ini";
 
@@ -74,7 +78,6 @@ public class LoginController implements Initializable{
             }
 
 
-
         } catch (Exception e) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -84,8 +87,12 @@ public class LoginController implements Initializable{
     @FXML
     private void LogAction(ActionEvent event) throws Exception {
         if(userField.getText().equals("root") && passField.getText().equals("toor")) {
+
+            if(rememberMe.isSelected()) {
+                createIniFile();
+            }
+
             status.setText("Logging in");
-            createIniFile();
             Stage secondaryStage = new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
             secondaryStage.setTitle("Sterling");

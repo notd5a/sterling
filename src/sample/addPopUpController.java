@@ -1,22 +1,15 @@
 package sample;
 
 import javafx.fxml.FXML;
-import java.io.File;
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.ini4j.Ini;
 import javafx.fxml.*;
-import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
 
 public class addPopUpController implements Initializable {
@@ -33,8 +26,6 @@ public class addPopUpController implements Initializable {
     @FXML
     private ChoiceBox<String> addBox;
 
-    private final String pathIni = "ini\\LoginData.ini";
-
     @FXML
     public void cancelAction(ActionEvent actionEvent) {
         Stage addStage = (Stage) cancelButton.getScene().getWindow();
@@ -42,19 +33,64 @@ public class addPopUpController implements Initializable {
     }
 
     @FXML
-    public void confirmAction(ActionEvent actionEvent) throws IOException {
+    public void confirmAction(ActionEvent actionEvent) throws Exception {
 
-        File file = new File(pathIni);
-        Ini wini = new Ini(new File(pathIni));
-        String choice = addBox.getValue();
-        int choiceValue = wini.get("income_value", choice, int.class); ///<<<-----CULPRIT HERE
-        int textFieldValue = Integer.parseInt(addValue.getText().trim().toUpperCase());
-        int finalValue = choiceValue + textFieldValue;
-        System.out.println(choiceValue); //<---Issue is with choiceValue, pulling the value and storing it as 0
-        System.out.println(textFieldValue);
-        System.out.println(finalValue);
-        wini.put("income_data", choice, finalValue); //----This works however
-        wini.store();
+        int loan;
+        int loan1;
+        int salary;
+        int salary1;
+        int credit;
+        int credit1;
+        int investment;
+        int investment1;
+        int finall;
+
+        saveData data = new saveData();
+        if(addBox.getValue().equals("salary"))
+        {
+            salary = Integer.parseInt(addValue.getText().trim().toUpperCase());
+            salary1 = data.getSalary();
+            finall = salary + salary1;
+            data.setSalary(finall);
+            System.out.println(salary);
+            System.out.println(salary1);
+            System.out.println(finall);
+            resourceManager.save(data, "income.txt");
+
+        }
+        else if(addBox.getValue().equals("investment")) {
+
+            investment = Integer.parseInt(addValue.getText().trim().toUpperCase());
+            investment1 = data.getInvestment();
+            finall = investment + investment1;
+            data.setInvestment(finall);
+            resourceManager.save(data, "income.txt");
+
+        }
+        else if(addBox.getValue().equals("credit")) {
+
+            credit = Integer.parseInt(addValue.getText().trim().toUpperCase());
+            credit1 = data.getCredit();
+            finall = credit + credit1;
+            data.setCredit(finall);
+            resourceManager.save(data, "income.txt");
+
+        }
+        else if(addBox.getValue().equals("loan")) {
+
+            loan = Integer.parseInt(addValue.getText().trim().toUpperCase());
+            loan1 = data.getLoan();
+            finall = loan + loan1;
+            data.setCredit(finall);
+            resourceManager.save(data, "income.txt");
+
+        }
+        else {
+            System.err.println("Error! Pick a correct choice");
+        }
+        resourceManager.save(data, "income.txt");
+
+
 
         //closes file after saving data into config file
         Stage addStage = (Stage) confirmBtn.getScene().getWindow();
