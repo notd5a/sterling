@@ -48,46 +48,46 @@ public class incomeController implements Initializable{
     //-----------Salary Buttons------------//
     @FXML
     public void salAddBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("addPopUp.fxml");
+        openPopUp("IncomeaddPopUp.fxml");
     }
 
     @FXML
     public void salChangeBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("changePopUp.fxml");
+        openPopUp("IncomechangePopUp.fxml");
     }
 
     //------------Investment Buttons---------//
     @FXML
     public void investmentAddBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("addPopUp.fxml");
+        openPopUp("IncomeaddPopUp.fxml");
     }
 
     @FXML
     public void investmentChangeBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("changePopUp.fxml");
+        openPopUp("IncomechangePopUp.fxml");
     }
 
     //------------------Credit Buttons---------------//
     @FXML
     public void creditAddBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("addPopUp.fxml");
+        openPopUp("IncomeaddPopUp.fxml");
     }
 
     @FXML
     public void creditChangeBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("changePopUp.fxml");
+        openPopUp("IncomechangePopUp.fxml");
     }
 
     //-------------------Loan Buttons----------------//
 
     @FXML
     public void loanAddBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("addPopUp.fxml");
+        openPopUp("IncomeaddPopUp.fxml");
     }
 
     @FXML
     public void loanChangeBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("changePopUp.fxml");
+        openPopUp("IncomechangePopUp.fxml");
     }
     //-----------------------------------------------End of Buttons--------------------------------------------------//
 
@@ -109,7 +109,7 @@ public class incomeController implements Initializable{
 
         try {
 
-            saveData data = (saveData) resourceManager.load("income.txt");
+            saveData data = (saveData) resourceManager.load("balance.txt");
             salaryVal.setText("$" + data.getSalary());
             salaryVal1.setText("$" + data.getSalary());
             investmentVal.setText("$" + data.getInvestment());
@@ -118,6 +118,10 @@ public class incomeController implements Initializable{
             creditVal1.setText("$" + data.getCredit());
             loanVal.setText("$" + data.getLoan());
             loanValue1.setText("$" + data.getLoan());
+            int total = data.getSalary() + data.getInvestment() + data.getCredit() + data.getLoan();
+            data.setIncome(total);
+            totalIncome.setText("$" + total);
+            resourceManager.save(data, "balance.txt");
 
 
         } catch (Exception e) {

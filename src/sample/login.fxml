@@ -33,7 +33,7 @@
                   <Font name="Segoe UI Light" size="33.0" />
                </font>
             </Label>
-            <Label fx:id="status" layoutY="340.0" prefHeight="34.0" prefWidth="283.0" style="-fx-alignment: center;">
+            <Label fx:id="status" layoutY="349.0" prefHeight="34.0" prefWidth="283.0" style="-fx-alignment: center;" textFill="#df3b3b">
                <font>
                   <Font name="Segoe UI Light Italic" size="23.0" />
                </font>
@@ -55,10 +55,20 @@
             <Font name="Segoe UI Light" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="6.0" layoutY="382.0" prefHeight="21.0" prefWidth="304.0" text="Debug Mode: Username: root, Password: toor" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="6.0">
+      <Label layoutX="6.0" layoutY="382.0" prefHeight="21.0" prefWidth="304.0" text="Version 1.0" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="6.0">
          <font>
             <Font name="Segoe UI Light Italic" size="13.0" />
          </font>
       </Label>
+      <Label layoutX="34.0" layoutY="134.0" prefHeight="31.0" prefWidth="180.0" text="Dont have an account?" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="214.0" layoutY="130.0" mnemonicParsing="false" onAction="#signUpAction" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: #2A73FF;" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Semibold Italic" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

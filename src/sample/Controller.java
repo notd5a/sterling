@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -40,7 +41,7 @@ public class Controller implements Initializable {
 
     //add an ImageView with this fx:id and then set the image in initialize function
     @FXML
-    private ImageView avatar;
+    private ImageView avatarImage;
 
     AnchorPane homepane;
 
@@ -88,15 +89,18 @@ public class Controller implements Initializable {
         //Set name on main page by grabbing username from file
         try {
 
+            saveData data = (saveData) resourceManager.load("balance.txt");
             this.createPage(homepane, "profile.fxml");
-            File file = new File(pathIni);
-            Ini wini = new Ini(new File(pathIni));
-            String namev = wini.get("login_data", "username");
+            File file = new File("img/jimmy-fallon.png");
+            Image avatar = new Image(file.toURI().toString());
+            avatarImage.setImage(avatar);
+            String namev = data.getName();
             name.setText(namev);
 
 
-
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

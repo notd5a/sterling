@@ -8,6 +8,8 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.ini4j.Ini;
 
 import java.io.File;
@@ -26,7 +28,7 @@ public class profileController implements Initializable{
     @FXML
     private Label age;
     @FXML
-    private Label totalSaved;
+    private Label netWorth;
     @FXML
     private Label totalIncome;
     @FXML
@@ -34,11 +36,9 @@ public class profileController implements Initializable{
     @FXML
     private Label savings;
     @FXML
-    private CategoryAxis x;
-    @FXML
-    private NumberAxis y;
-    @FXML
     private BarChart<String, Number> bar_chart;
+    @FXML
+    private ImageView avatarImage;
 
     private final String pathIni = "ini\\LoginData.ini";
 
@@ -63,9 +63,9 @@ public class profileController implements Initializable{
             if(tempLabel.getText().equals(name))
             {
                 tempLabel.getGraphic().setStyle(fxStyle);
-                //"-fx-bar-fill: #2a73ff;"
-                //"-fx-bar-fill: #26bfbc;"
-                //"-fx-bar-fill: #fa5f7e;"
+                //"-fx-bar-fill: #2a73ff;" //blueish
+                //"-fx-bar-fill: #26bfbc;" //redish
+                //"-fx-bar-fill: #fa5f7e;" //pinkish
             }
         }
 
@@ -76,19 +76,21 @@ public class profileController implements Initializable{
 
         Ini wini = new Ini(new File(pathIni));
 
+        saveData data = (saveData) resourceManager.load("balance.txt");
+
         //get values from file to fill in the chart
-        int salary = wini.get("income_data", "salary", int.class);
-        int investment = wini.get("income_data", "investment", int.class);
-        int credit =  wini.get("income_data", "credit", int.class);
-        int loan = wini.get("income_data", "loan", int.class);
-        int home = wini.get("spending_data", "home", int.class);
-        int transport = wini.get("spending_data", "transport", int.class);
-        int health = wini.get("spending_data", "health", int.class);
-        int entertainment = wini.get("spending_data", "entertainment", int.class);
-        int four01k = wini.get("savings_data", "four01k", int.class);
-        int education = wini.get("savings_data", "education", int.class);
-        int emergencyFund = wini.get("savings_data", "emergencyFund", int.class);
-        int uncategorized = wini.get("savings_data", "uncategorized", int.class);
+        int salary = data.getSalary();
+        int investment = data.getInvestment();
+        int credit =  data.getCredit();
+        int loan = data.getLoan();
+        int home = data.getHome();
+        int transport = data.getHome();
+        int health = data.getHealth();
+        int entertainment = data.getEntertainment();
+        int four01k = data.getFour01k();
+        int education = data.getEducation();
+        int emergencyFund = data.getEmergencyFund();
+        int uncategorized = data.getUncategorized();
 
         //set up chart here
         XYChart.Series series1 = new XYChart.Series<>();
@@ -124,35 +126,30 @@ public class profileController implements Initializable{
 
         try {
 
-
-
+            saveData data = (saveData) resourceManager.load("balance.txt");
             File file = new File(pathIni);
+
             if (file.exists()) {
                 Ini wini = new Ini(new File(pathIni));
-                int incomev = wini.get("balance_data", "income", int.class);
-                int savingsv = wini.get("balance_data", "savings", int.class);
-                int spendingv = wini.get("balance_data", "spending", int.class);
-                int totalSavedv = wini.get("balance_data", "totalSaved", int.class);
-                //int savingsv = Integer.parseInt(wini.get("balance_data", "savings"));
-                //int spendingv = Integer.parseInt(wini.get("balance_data", "spending"));
-                //int totalSavedv = Integer.parseInt(wini.get("balance_data", "totalSaved"));
-                String namev = wini.get("login_data", "name");
-                String agev = wini.get("login_data", "age");
-                String usernamev = wini.get("login_data", "username");
+                int incomev = data.getIncome();
+                int savingsv = data.getSavings();
+                int spendingv = data.getSpendings();
+                int netWorthv = (data.getIncome() + data.getSavings()) - data.getSpendings();
+                String namev = data.getName();
+                int agev = data.getAge();
+                String usernamev = data.getUsername();
 
                 //Set label text to the variables pulled from ini file above
                 name.setText(namev);
                 username.setText(usernamev);
-                age.setText(agev);
-                totalSaved.setText("$" + totalSavedv);
+                age.setText("" + agev);
+
+                netWorth.setText("$" + netWorthv);
                 totalIncome.setText("$" + incomev);
                 spending.setText("$" + spendingv);
                 savings.setText("$" + savingsv);
 
             }
-
-
-
 
         } catch (Exception e) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
@@ -162,7 +159,6 @@ public class profileController implements Initializable{
     private void plotChart()
     {
         XYChart.Series<Number, Number> series = new XYChart.Series<>();
-
     }
 
     @Override
@@ -170,12 +166,15 @@ public class profileController implements Initializable{
 
         //Set name on main page by grabbing username from file
         try {
-            Ini wini = new Ini(new File(pathIni));
-        } catch (IOException e) {
+            File file = new File("img/jimmy-fallon.png");
+            Image avatar = new Image(file.toURI().toString());
+            avatarImage.setImage(avatar);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         readIniFile();
+
         try {
             setUpChart();
         } catch (Exception e) {

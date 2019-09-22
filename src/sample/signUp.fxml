@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="406.0" prefWidth="743.0" style="-fx-background-color: #2A73FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.signUpController">
+    <children>
+        <Pane layoutX="464.0" prefHeight="441.0" prefWidth="283.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button fx:id="signUpButton" layoutX="20.0" layoutY="306.0" mnemonicParsing="false" onAction="#signUpAction" prefHeight="44.0" prefWidth="235.0" style="-fx-background-color: #2A73FF;" text="Sign Up" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI Light" size="15.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="usernameField" layoutX="21.0" layoutY="203.0" prefHeight="25.0" prefWidth="235.0" promptText="Username">
+                    <font>
+                        <Font name="Segoe UI Light Italic" size="15.0" />
+                    </font>
+                </TextField>
+                <PasswordField fx:id="passwordField" layoutX="20.0" layoutY="255.0" prefHeight="31.0" prefWidth="235.0" promptText="Password">
+                    <font>
+                        <Font name="Segoe UI Light Italic" size="15.0" />
+                    </font>
+                </PasswordField>
+                <Label layoutX="77.0" layoutY="31.0" prefHeight="49.0" prefWidth="122.0" style="-fx-alignment: center;" text="Sign Up">
+                    <font>
+                        <Font name="Segoe UI Light" size="33.0" />
+                    </font>
+                </Label>
+                <Label fx:id="status" layoutY="366.0" prefHeight="34.0" prefWidth="283.0" style="-fx-alignment: center;" textFill="#df3b3b">
+                    <font>
+                        <Font name="Segoe UI Light Italic" size="23.0" />
+                    </font>
+                </Label>
+            <TextField fx:id="nameField" layoutX="21.0" layoutY="94.0" prefHeight="25.0" prefWidth="235.0" promptText="Name">
+               <font>
+                  <Font name="Segoe UI Light Italic" size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="ageField" layoutX="20.0" layoutY="147.0" prefHeight="25.0" prefWidth="235.0" promptText="Age">
+               <font>
+                  <Font name="Segoe UI Light Italic" size="15.0" />
+               </font>
+            </TextField>
+            </children>
+        </Pane>
+        <Label layoutY="34.0" prefHeight="69.0" prefWidth="464.0" style="-fx-alignment: center;" text="Welcome to Sterling" textFill="WHITE">
+            <font>
+                <Font name="Segoe UI Light" size="47.0" />
+            </font>
+        </Label>
+        <Label layoutX="34.0" layoutY="103.0" prefHeight="31.0" prefWidth="430.0" text="Take control of your finances." textFill="WHITE">
+            <font>
+                <Font name="Segoe UI Light" size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="6.0" layoutY="382.0" prefHeight="21.0" prefWidth="304.0" text="Version 1.0" textFill="WHITE" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="6.0">
+            <font>
+                <Font name="Segoe UI Light Italic" size="13.0" />
+            </font>
+        </Label>
+        <Button layoutX="182.0" layoutY="130.0" mnemonicParsing="false" onAction="#backButton" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: #2A73FF;" text="Sign In" textFill="WHITE">
+            <font>
+                <Font name="Segoe UI Semibold Italic" size="18.0" />
+            </font>
+        </Button>
+        <Label layoutX="34.0" layoutY="134.0" prefHeight="31.0" prefWidth="148.0" text="Have an Account?" textFill="WHITE">
+            <font>
+                <Font name="Segoe UI Light" size="18.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

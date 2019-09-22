@@ -32,23 +32,27 @@ public class LoginController implements Initializable{
     @FXML
     private CheckBox rememberMe;
 
-    private final String pathIni = "ini\\LoginData.ini";
+    private final String pathIni = "balance.txt";
+    saveData data;
+
+    {
+        try {
+            data = (saveData) resourceManager.load("balance.txt");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     ///-----Create Ini File ---/////
     public void createIniFile(){
         try {
-
             File file = new File(pathIni);
             if (!file.exists()) {
                 file.createNewFile();
             }
-            Ini wini = new Ini(new File(pathIni));
-            wini.put("login_data", "username", userField.getText());
-            wini.put("login_data", "password", passField.getText());
 
-            wini.put("login_data", "name", "Name");
-            wini.put("login_data", "age", "18");
-            wini.store();
+            data.setUsername(userField.getText());
+            data.setPassword(passField.getText());
 
         } catch (Exception e) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
@@ -60,13 +64,12 @@ public class LoginController implements Initializable{
 
         try {
 
-
-            File file = new File(pathIni);
+            File file = new File("balance.txt");
             if (file.exists()) {
-                Ini wini = new Ini(new File(pathIni));
-                String username = wini.get("login_data", "username");
-                String password = wini.get("login_data", "password");
+                String username = data.getUsername();
+                String password = data.getPassword();
 
+                //if empty then put in the username and pass in the fields
                 if((username != null && !username.equals("")) && (password != null && !password.equals("")) ) {
                     userField.setText(username);
                     passField.setText(password);
@@ -83,10 +86,22 @@ public class LoginController implements Initializable{
         }
     }
 
+    @FXML
+    private void signUpAction(ActionEvent actionEvent) throws IOException {
+        Stage secondaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("signUp.fxml"));
+        secondaryStage.setTitle("Sterling");
+        secondaryStage.setScene(new Scene(root, 743, 406));
+        secondaryStage.setResizable(false);
+        secondaryStage.show();
+        Stage stage = (Stage) loginButton.getScene().getWindow();
+        stage.close();
+    }
+
 
     @FXML
     private void LogAction(ActionEvent event) throws Exception {
-        if(userField.getText().equals("root") && passField.getText().equals("toor")) {
+        if(userField.getText().equals(data.getUsername()) && passField.getText().equals(data.getPassword())) {
 
             if(rememberMe.isSelected()) {
                 createIniFile();

@@ -46,46 +46,45 @@ public class expensesController implements Initializable {
     //-----------Salary Buttons------------//
     @FXML
     public void salAddBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("addPopUp.fxml");
+        openPopUp("SpendingsaddPopUp.fxml");
     }
 
     @FXML
     public void salChangeBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("changePopUp.fxml");
+        openPopUp("SpendingschangePopUp.fxml");
     }
 
     //------------Investment Buttons---------//
     @FXML
     public void investmentAddBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("addPopUp.fxml");
+        openPopUp("SpendingsaddPopUp.fxml");
     }
 
     @FXML
     public void investmentChangeBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("changePopUp.fxml");
+        openPopUp("SpendingschangePopUp.fxml");
     }
 
     //------------------Credit Buttons---------------//
     @FXML
     public void creditAddBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("addPopUp.fxml");
+        openPopUp("SpendingsaddPopUp.fxml");
     }
 
     @FXML
     public void creditChangeBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("changePopUp.fxml");
-    }
+        openPopUp("SpendingschangePopUp.fxml");    }
 
     //-------------------Loan Buttons----------------//
 
     @FXML
     public void loanAddBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("addPopUp.fxml");
+        openPopUp("SpendingsaddPopUp.fxml");
     }
 
     @FXML
     public void loanChangeBtn(ActionEvent actionEvent) throws Exception {
-        openPopUp("changePopUp.fxml");
+        openPopUp("SpendingschangePopUp.fxml");
     }
     //-----------------------------------------------End of Buttons--------------------------------------------------//
 
@@ -107,15 +106,19 @@ public class expensesController implements Initializable {
 
         try {
 
-            saveData data = (saveData) resourceManager.load("income.txt");
-            salaryVal.setText("$" + data.getSalary());
-            salaryVal1.setText("$" + data.getSalary());
-            investmentVal.setText("$" + data.getInvestment());
-            investmentVal1.setText("$" + data.getInvestment());
-            creditVal.setText("$" + data.getCredit());
-            creditVal1.setText("$" + data.getCredit());
-            loanVal.setText("$" + data.getLoan());
-            loanValue1.setText("$" + data.getLoan());
+            saveData data = (saveData) resourceManager.load("balance.txt");
+            salaryVal.setText("$" + data.getHome());
+            salaryVal1.setText("$" + data.getHome());
+            investmentVal.setText("$" + data.getTransport());
+            investmentVal1.setText("$" + data.getTransport());
+            creditVal.setText("$" + data.getHealth());
+            creditVal1.setText("$" + data.getHealth());
+            loanVal.setText("$" + data.getEntertainment());
+            loanValue1.setText("$" + data.getEntertainment());
+            int total = data.getHome() + data.getTransport() + data.getHealth() + data.getEntertainment();
+            data.setSpendings(total);
+            totalIncome.setText("$" + total);
+            resourceManager.save(data, "balance.txt");
 
 
         } catch (Exception e) {
